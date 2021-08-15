@@ -1,10 +1,19 @@
 from pydantic import BaseModel
+from typing import Union, Optional
 
 
 class Book(BaseModel):
-    title: str
-    rating: int
-    author_id: int
+    title: Optional[str]
+    rating: float
+    author_id: Optional[int]
+    price: Union[
+        None,
+        float
+    ]
+    unit_of_currency: Union[
+       None,
+       str
+    ]
 
     class Config:
         orm_mode = True
